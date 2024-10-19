@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 $fullname = $_POST["fullName"];
 $username = $_POST["username"];
 $password = $_POST["password"];
@@ -33,11 +35,13 @@ try {
     $encryptPass = Password_hash(trim($password), PASSWORD_BCRYPT);
 
     if ($stmt->execute()){
-        header("location:/registration.php?success=Registration Successful");
+        header("location:/registration.php");
+        $_SESSION["success"] = "Registration Successful";
         exit;
 
     }else{
-        header("location:/registration.php?error=Insert Error");
+        header("location:/registration.php");
+        $_SESSION["error"] = "Insert Error";
         exit;
 
     }
@@ -46,7 +50,8 @@ try {
     echo "Connection Failed: " . $e->getMessage();
 }
   }else{
-    header("location:/registration.php?error=Password Mismatch");
+    header("location:/registration.php");
+    $_SESSION["error"] = "Password Mismatch";
         exit;
 
   }

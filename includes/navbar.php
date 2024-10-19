@@ -29,9 +29,13 @@
                             <li><a class="dropdown-item" href="dashboard.html">Dashboard</a></li>
                             <li><a class="dropdown-item" href="profile.html">Profile</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="logout.html">Logout</a></li>
-                        </ul>
+                            <li>
+                                <form action ="/logout.php" method="POST">
+                            <button class="dropdown-item">Logout</a></button>
+                     </form>
                     </li>
+                    
+                    <ul>
                     <?php } ?>
                     
                 </ul>

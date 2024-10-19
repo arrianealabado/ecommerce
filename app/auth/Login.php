@@ -30,15 +30,17 @@ try {
     
     
         if ($password == $users[0]["password"]){
-            echo "login successful";
+            header("location:/index.php");
             $_SESSION["fullname"] = $users[0]["fullname"];
         }else{
-            echo "password did not match";
+            header("location:/login.php");
+            $_SESSION["error"] = "password not match";
         }
          
     }else {
 
-             echo "user not exist";
+        header("location:/login.php");
+        $_SESSION["error"] = "user not found";
     }
 
 
