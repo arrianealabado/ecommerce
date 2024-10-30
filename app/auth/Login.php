@@ -5,22 +5,14 @@ $password = $_POST["password"];
 
 session_start();
 
-
+include('../config/DatabaseConnect.php');
 
 if($_SERVER ["REQUEST_METHOD"] == "POST"){
-  //RECEIVE USER INPUT
-  //VERIFY PASSWORD AND CONFIRM PASSWORD TO BE MATCH
+  
+    $db = new DatabaseConnect();
+    $conn = $db->connectDB();
 
-    $host = "localhost";
-    $database = "ecommerceb2";
-    $dbusername = "root";
-    $dbpassword = "";
-
-$dsn = "mysql: host=$host;dbname=$database;";
 try {
-    $conn = new PDO($dsn, $dbusername, $dbpassword);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO:: FETCH_ASSOC);
     
     $stmt = $conn->prepare('SELECT * FROM `users`WHERE username = :p_username;');
     $stmt->bindParam(':p_username', $username);
@@ -30,8 +22,16 @@ try {
     
     
         if ($password == $users[0]["password"]){
-            header("location:/index.php");
-            $_SESSION["fullname"] = $users[0]["fullname"];
+            $_SESSION = [];
+            session_regenerate_id(true);
+            $_SESSION['user_id'] = $users[0]['id'];
+            $_SESSION['username'] = $users[0]['username'];
+            $_SESSION['fullname'] = $users[0]['fullname'];
+            $_SESSION['is_admin'] = $users[0]['is_admin'];
+
+            header("location: /index.php");
+            exit;
+        
         }else{
             header("location:/login.php");
             $_SESSION["error"] = "password not match";
