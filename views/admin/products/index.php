@@ -68,6 +68,5 @@
 
     
 
-   <!-- Footer -->
-   <?php require_once("includes/footer.php")?>
-
+  <!-- Footer -->
+<?php require_once(ROOT_DIR."includes/footer.php"); ?>
