@@ -13,8 +13,8 @@
         </div>
     </div> 
 
-       </body>
-       </html>
+       <!-- Footer -->
+       <?php require_once(ROOT_DIR."includes/footer.php"); ?>
        <?php 
         exit;
     }

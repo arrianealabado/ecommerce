@@ -13,7 +13,7 @@ include("..\config/DatabaseConnect.php");
     
     try {
 
-        $sql  = "DELETE FROM `products` WHERE products.id = :p_id"; //select statement here
+        $sql  = "DELETE FROM products WHERE products.id = :p_id"; //select statement here
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':p_id', $productId);
         $stmt->execute();
