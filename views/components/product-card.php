@@ -10,12 +10,12 @@
                         <p class="card-text">Total Price: <?php echo number_format ($product["total_price"],2);?></p>
                         <a href="<?php echo BASE_URL;?>views/admin/products/edit.php?id=<?php echo $product["id"]; ?>" 
                         class="btn btn-primary">Edit Product</a>
-                        <form action= "<?php echo BASE_URL;?>app/product/delete_product.php" class="d-inline" method = "POST">
+                        
+                        <form action= "<?php echo BASE_URL;?>app/product/delete_product.php" method= "POST" class="d-inline">
                         <input type ="hidden" name="id" value="<?php echo $product["id"]; ?>">
-                        
-                        
-                        <button href="#" class="btn btn-danger" onlick="return confirm('Are you sure you want to delete this Product?')" >Delete Product</button>
-                    
+                        <button type="submit"  onlick="return confirm('Are you sure you want to delete this Product?')" class="btn
+                        btn-danger" >Delete Product</button>
+                        </form>
                     </div>
                 </div>
             </div>
