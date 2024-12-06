@@ -2,11 +2,18 @@
 
 
 class DatabaseConnect {
+    //private $host = "localhost";
+    //private $database = "ecommerce_aalabado";
+    //private $dbusername = "aalabado";
+    //private $dbpassword = "A4labad0_2024";
+   // private $charset    = 'utf8mb4';
+    //private $conn = null;
+
     private $host = "localhost";
     private $database = "ecommerceb2";
     private $dbusername = "root";
-    private $dbpassword = "";
     private $charset    = 'utf8mb4';
+    private $dbpassword = "";
     private $conn = null;
 
 
