@@ -18,10 +18,17 @@ if($_SERVER ["REQUEST_METHOD"] == "POST"){
 
 
 
-    $host = "localhost";
-$database = "ecommerceb2";
-$dbusername = "root";
-$dbpassword = "";
+    //$host = "localhost";
+    //$database = "ecommerceb2";
+    //$dbusername = "root";
+    //$dbpassword = "";
+
+     $host = "localhost";
+     $database = "ecommerce_aalabado";
+     $dbusername = "aalabado";
+     $dbpassword = "A4labad0_2024";
+     $charset    = 'utf8mb4';
+     $conn = null;
 
 $dsn = "mysql: host=$host;dbname=$database;";
 try {
